@@ -1,0 +1,66 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-weight: normal;
+    background-color: gray;
+}
+
+.calc_grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    /*grid layout will be defined by the following properties*/
+    grid-template-columns: repeat(4, 100px);
+    /*repeat that there are 4 columns and each column is 100px wide // same with rows but there are 5 rows*/
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    /*minmax says that the displayed number is at least 120px wide (or its container) 
+    and the second parameter "auto" says it can be as wide as it needs to be*/
+}
+
+.calc_grid>button {
+    cursor: pointer;
+    font-size: 2.2rem;
+    border: 1px solid rgba(72, 72, 72, 0.54);
+    background-color: rgba(255, 255, 255, .75);
+}
+
+.calc_grid>button:hover {
+    background-color: rgba(185, 195, 170, 0.544);
+}
+
+.two_fields {
+    /*every button with this class will take 2 column spots*/
+    grid-column: span 2;
+}
+
+.display {
+    /*every item with this class will take the space from column 1 to the last one*/
+    grid-column: 1 / -1;
+    /*if the number gets to long, it should break into the next row*/
+    word-wrap: break-word;
+    word-break: break-all;
+    background-color: rgba(0, 0, 0, .75);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 12px;
+
+}
+
+.display .prev_operand {
+    color: rgba(255, 255, 255, .7);
+    font-size: 1.2rem;
+}
+
+.display .curr_operand {
+    color: white;
+    font-size: 2rem;
+}
