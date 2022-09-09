@@ -46,7 +46,7 @@ body {
 }
 
 .display {
-    /*every item with this class will take the space from column 1 to the last one*/
+    /*every item with this class and this grid-column property will take the space from column 1 to the last one*/
     grid-column: 1 / -1;
     /*if the number gets to long, it should break into the next row*/
     word-wrap: break-word;

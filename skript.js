@@ -35,6 +35,7 @@ class Calculator {
         if (this.operation != null) {
             this.previousOperandText.innerText = `${this.previousOperand} ${this.operation}`;
         }else {
+            //This else route removes the previous calculation at the top of the display if the previousOperand is set to an empty string.
             this.previousOperandText.innerText = this.previousOperand;
         }
     }
@@ -57,6 +58,13 @@ class Calculator {
         if(isNaN(previous) || isNaN(current)) return
         switch (this.operation) {
             case '÷':
+                if(current === 0) {
+                    this.currentOperand = 'CANT DEVIDE BY 0';
+                    setTimeout(() => {
+                        this.currentOperand = ''
+                    }, 100);
+                    return;
+                }
                 calculation = previous / current;
                 break;
             case '*':
