@@ -7,11 +7,11 @@ class Calculator {
     //functions inside Objects are also called METHODS.
     constructor(previousOperandText, currentOperandText) {
         //In this constructor function we hand over two variables that store/save the numbers we need.
-        //A constructor function automatically creates an Object called this. Inside the class object we can refer to this, which stores all our values.
-        //We set the previousOperandText variable and the currentOperantText variable of the this object to the value of the variables we get handed with the creation of the class object.
+        //A constructor function automatically creates an Object called "this". Inside the class object we can refer to "this", which stores all our values.
+        //We set the previousOperandText variable and the currentOperantText variable of the "this" object to the value of the variables we get handed with the creation of the class object.
         this.previousOperandText = previousOperandText;
         this.currentOperandText = currentOperandText;
-        //When a calculator Object gets declared in the code with the new statement (line 82), we want to "create" two variables inside the calculator (this) object: previousOperand and currentOperand (without the Text), by calling the allClear() method in the creation process.
+        //When a calculator Object gets declared in the code with the new statement (line 89), we want to "create" two variables inside the calculator ("this") object: previousOperand and currentOperand (without the Text), by calling the allClear() method in the creation process.
         this.allClear();
     }
     //In the following methods we have an operandText variable and an operand variable. 
@@ -24,48 +24,49 @@ class Calculator {
     }
     appendInput(input){
         //Only allow one period in the input.
-        if (input === '.' && this.currentOperand.includes('.')) return
+        if (input === '.' && this.currentOperand.includes('.')) return;
         //We convert our input into strings, because JavaScript would try to actually ADD/calculate these NumberInputs, not append them.
         //EXAMPLE: WITHOUT .toString(): 1 + 1 equals 2  // WITH .toString(): 1 + 1 equals 11
-        this.currentOperand = this.currentOperand.toString() + input.toString()
+        this.currentOperand = this.currentOperand.toString() + input.toString();
     }
     updateDisplay(){
         //The output on the display in the browser (currentOperandText) gets updated to the input.
-        this.currentOperandText.innerText = this.currentOperand
+        this.currentOperandText.innerText = this.currentOperand;
         if (this.operation != null) {
-            this.previousOperandText.innerText = `${this.previousOperand} ${this.operation}`
+            this.previousOperandText.innerText = `${this.previousOperand} ${this.operation}`;
         }else {
-            this.previousOperandText.innerText = this.previousOperand
-
+            this.previousOperandText.innerText = this.previousOperand;
         }
     }
     selectOperation(operation){
-        if (this.currentOperand === '') return
+        if (this.currentOperand === '') return;
         //Do the already existing operation, before accepting a new operation.
         if (this.previousOperand !== '') {
-            this.calc()
+            this.calc();
         }
-        this.operation = operation
-        this.previousOperand = this.currentOperand
-        this.currentOperand = ''
+        this.operation = operation;
+        this.previousOperand = this.currentOperand;
+        this.currentOperand = '';
     }
     calc(){
         let calculation = 0;
-        const prev = parseFloat(this.previousOperand);
-        const current = parseFloat(this.currentOperand);
-        if(isNaN(prev) || isNaN(current)) return
+        //parseFloat() converts everything inside a string it identifies as a number into data-type NUMBER.
+        //Difference to parseInt() is, that it also converts positions after a decimal point. parseInt() returns full integers or whole numbers.
+        let previous = parseFloat(this.previousOperand);
+        let current = parseFloat(this.currentOperand);
+        if(isNaN(previous) || isNaN(current)) return
         switch (this.operation) {
             case '÷':
-                calculation = prev / current;
+                calculation = previous / current;
                 break;
             case '*':
-                calculation = prev * current;
+                calculation = previous * current;
                 break;
             case '+':
-                calculation = prev + current
+                calculation = previous + current
                 break;
             case '-':
-                calculation = prev - current;
+                calculation = previous - current;
                 break;
             default: return
         }
@@ -101,7 +102,7 @@ Array.from(operationButtons).map(button => {
     })
 })
 equalsButton.addEventListener('click', button => {
-    calculator.calc()
+    calculator.calc();
     calculator.updateDisplay();
 })
 allClearButton.addEventListener('click', button => {
