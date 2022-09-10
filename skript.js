@@ -25,6 +25,7 @@ class Calculator {
     appendInput(input){
         //Only allow one period in the input.
         if (input === '.' && this.currentOperand.includes('.')) return;
+        if (input == 0 && !this.currentOperand.includes('.') && this.currentOperand.includes(0)) return;
         //We convert our input into strings, because JavaScript would try to actually ADD/calculate these NumberInputs, not append them.
         //EXAMPLE: WITHOUT .toString(): 1 + 1 equals 2  // WITH .toString(): 1 + 1 equals 11
         this.currentOperand = this.currentOperand.toString() + input.toString();
@@ -32,7 +33,7 @@ class Calculator {
     updateDisplay(){
         //The output on the display in the browser (currentOperandText) gets updated to the input.
         this.currentOperandText.innerText = this.currentOperand;
-        if (this.operation != null) {
+        if (this.operation != null || this.operation != undefined) {
             this.previousOperandText.innerText = `${this.previousOperand} ${this.operation}`;
         }else {
             //This else route removes the previous calculation at the top of the display if the previousOperand is set to an empty string.
