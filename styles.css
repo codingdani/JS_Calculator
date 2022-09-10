@@ -25,8 +25,8 @@ body {
     grid-template-columns: repeat(4, 100px);
     /*repeat that there are 4 columns and each column is 100px wide // same with rows but there are 5 rows*/
     grid-template-rows: minmax(120px, auto) repeat(5, 100px);
-    /*minmax says that the displayed number is at least 120px wide (or its container) 
-    and the second parameter "auto" says it can be as wide as it needs to be*/
+    /*minmax says that the first row (the display) has a min height of 120px. 
+    The auto (or max value) says it can grow as large as it needs to be to fit all the numbers we enter in the calculator.*/
 }
 
 .calc_grid>button {

@@ -8,13 +8,13 @@ class Calculator {
     constructor(previousOperandText, currentOperandText) {
         //In this constructor function we hand over two variables that store/save the numbers we need.
         //A constructor function automatically creates an Object called "this". Inside the class object we can refer to "this", which stores all our values.
-        //We set the previousOperandText variable and the currentOperantText variable of the "this" object to the value of the variables we get handed with the creation of the class object.
+        //We set the a key for previousOperandText and the currentOperantText in the "this" object to the value of the variables we get handed with the creation of the class object.
         this.previousOperandText = previousOperandText;
         this.currentOperandText = currentOperandText;
-        //When a calculator Object gets declared in the code with the new statement (line 90), we want to "create" two variables inside the calculator ("this") object: previousOperand and currentOperand (without the Text), by calling the allClear() method in the creation process.
+        //When a calculator Object gets declared in the code with the new statement (line 99), we want to create two additional keys with values inside the calculator ("this") object: previousOperand and currentOperand (without the Text), by calling the allClear() method in the creation process. This key&value pair stores our data for the calculations.
         this.allClear();
     }
-    //In the following methods we have an operandText variable and an operand variable. 
+    //In the following methods we have an operandText key and an operand key. 
     //We can think of them as input/inside handler and output. The variable with the "Text" at the end displays the output in the browser.
     //The other one handles everything inside the class object & calculation.
     allClear(){
@@ -61,8 +61,9 @@ class Calculator {
                 if(current === 0) {
                     this.currentOperand = 'CANT DEVIDE BY 0';
                     setTimeout(() => {
-                        this.currentOperand = ''
-                    }, 100);
+                        this.currentOperand = '';
+                        this.updateDisplay();
+                    }, 1000);
                     return;
                 }
                 calculation = previous / current;
