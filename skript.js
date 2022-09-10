@@ -80,7 +80,7 @@ class Calculator {
                 break;
             default: return
         }
-        this.currentOperand = calculation;
+        this.currentOperand = parseFloat(calculation.toFixed(5));
         this.operation = undefined;
         this.previousOperand = '';
     }
