@@ -59,7 +59,7 @@ class Calculator {
         switch (this.operation) {
             case '÷':
                 if(current === 0) {
-                    this.currentOperand = 'CANT DEVIDE BY 0';
+                    this.currentOperand = "CAN'T DIVIDE BY ZERO";
                     setTimeout(() => {
                         this.currentOperand = '';
                         this.updateDisplay();
