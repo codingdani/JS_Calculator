@@ -1,5 +1,5 @@
 # JS_Calculator
-Created using a Class Object - explaination how it works is in the skript.js file.
+Created using a Class Object - An explaination on how it works is in the skript.js file.
 
-The calculator can be used here: 
+The calculator can be used here: https://codingdani.github.io/JS_Calculator/
  
