@@ -23,7 +23,7 @@ class Calculator {
         this.operation = undefined;
     }
     appendInput(input){
-        //Only allow one period ad 0 (before a ".") in the input.
+        //Only allow one period and 0 (before a ".") in the input.
         if (input === '.' && this.currentOperand.includes('.')) return;
         if (input == 0 && !this.currentOperand.includes('.') && this.currentOperand.includes(0)) return;
         //We convert our input into strings, because JavaScript would try to actually ADD/calculate these NumberInputs, not append them.
