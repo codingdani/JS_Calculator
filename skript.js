@@ -8,10 +8,10 @@ class Calculator {
     constructor(previousOperandText, currentOperandText) {
         //In this constructor function we hand over two variables that store/save the numbers we need.
         //A constructor function automatically creates an Object called "this". Inside the class object we can refer to "this", which stores all our values.
-        //We set the a key for previousOperandText and the currentOperantText in the "this" object to the value of the variables we get handed with the creation of the class object.
+        //We set a key for previousOperandText and currentOperantText in the "this" object and assign the value of the variables we get handed with the creation of the class object.
         this.previousOperandText = previousOperandText;
         this.currentOperandText = currentOperandText;
-        //When a calculator Object gets declared in the code with the new statement (line 99), we want to create two additional keys with values inside the calculator ("this") object: previousOperand and currentOperand (without the Text), by calling the allClear() method in the creation process. This key&value pair stores our data for the calculations.
+        //When a calculator Object gets declared in the code with the new statement (line 100), we want to create two additional keys with values inside the calculator ("this") object: previousOperand and currentOperand (without the Text), by calling the allClear() method in the creation process. This key&value pair stores our data for the calculations.
         this.allClear();
     }
     //In the following methods we have an operandText key and an operand key. 
@@ -23,7 +23,7 @@ class Calculator {
         this.operation = undefined;
     }
     appendInput(input){
-        //Only allow one period in the input.
+        //Only allow one period ad 0 (before a ".") in the input.
         if (input === '.' && this.currentOperand.includes('.')) return;
         if (input == 0 && !this.currentOperand.includes('.') && this.currentOperand.includes(0)) return;
         //We convert our input into strings, because JavaScript would try to actually ADD/calculate these NumberInputs, not append them.
