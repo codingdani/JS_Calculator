@@ -3,8 +3,8 @@
 
 class Calculator {
     //The constructor function is included in every class object and is a special method for assigning properties.
-    //It's automatically called when creating an class object.
-    //functions inside Objects are also called METHODS.
+    //It's automatically called when creating a class object.
+    //Functions inside Objects are also called METHODS.
     constructor(previousOperandText, currentOperandText) {
         //In this constructor function we hand over two variables that store/save the numbers we need.
         //A constructor function automatically creates an Object called "this". Inside the class object we can refer to "this", which stores all our values.
